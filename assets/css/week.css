@@ -1,0 +1,168 @@
+lhtml,
+body {
+	height: 100%;
+}
+
+header button {
+	float: right;
+	width: var(--space-4);
+	height: var(--space-4);
+	margin-top: calc((var(--space-6) - var(--space-4)) / 2);
+	font-size: var(--space-0);
+	padding: 0;
+	margin-left: var(--space--3);
+}
+
+#timetable {
+	display: flex;
+	padding: var(--space--1);
+	padding-right: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	max-width: 100%;
+	overflow-x: auto;
+	max-height: calc(100% - var(--space-5) - var(--space-0));
+	box-sizing: border-box;
+	height: 100%;
+}
+
+#timetable > * + * {
+	margin-left: var(--space--1);
+}
+
+#periods_container .period {
+	margin-top: calc(var(--space--1) + var(--space-3));
+	width: var(--space-6);
+}
+
+.day_container {
+    flex-basis: 150px;
+    width: 150px;
+    flex-grow: 1;
+}
+
+.day_container:last-of-type {
+	padding-right: var(--space--1);
+}
+
+.day_container .day_label {
+	font-size: var(--space--1);
+	color: var(--color-foreground-2);
+	text-transform: uppercase;
+	line-height: var(--space-3);
+	font-weight: 500;
+	font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	height: 2.625rem;
+}
+
+.day_container .subject_container {
+	box-sizing: border-box;
+	font-size: var(--space-0);
+	transition: opacity 0.15s, transform 0.15s;
+	border-radius: 5px;
+	background-color: var(--color-background-2);
+	overflow-y: auto;
+	display: flex;
+	align-items: center;
+	height: 5rem;
+	padding: var(--space--2) var(--space-0);
+	flex-direction: column;
+	justify-content: center;
+	min-width: 150px;
+	overflow: hidden;
+}
+
+.day_container {
+    margin-bottom: var(--space-0);
+}
+
+#periods_container .period {
+	margin-top: calc(var(--space--1) + 2.625rem);
+	width: auto;
+	height: 5rem !important;
+}
+
+.day_container * + .subject_container,
+#periods_container * + .period {
+	margin-top: var(--space--1);
+}
+	
+.day_container .subject_container span {
+    width: 100%;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.day_container .subject_container span:nth-of-type(1) {
+    padding-right: 0;
+    flex-grow: unset;
+}
+
+.day_container .subject_container span:nth-of-type(2) {
+	font-size: var(--space--1);
+	opacity: 85%;
+    text-align: left;
+}
+
+.day_container .subject_container.empty {
+	background-color: rgba(0, 0, 0, 0);
+	color: var(--color-foreground-2);
+	border: 3px dashed;
+	text-align: center;
+	font-size: var(--space-1);
+}
+
+@media screen and (max-width: 375px) {
+	.day_container .subject_container {
+		min-width: 100px;
+	}
+}
+
+@media print {
+    body.dark_mode {
+    	--color-background-1: #eee !important;
+	    --color-background-2: #fff !important;
+    	--color-background-3: #eee !important;
+    	--color-foreground-1: #000 !important;
+    	--color-foreground-2: #555 !important;
+    	--color-foreground-3: #777 !important;
+    	--color-positive: #0bf !important;
+    	--color-negative: #f53 !important;
+    }
+    
+	body {
+		background-color: #ffffff !important;
+	}
+
+	header {
+		box-shadow: none !important;
+	}
+
+	header button {
+		display: none;
+	}
+
+	#timetable {
+		padding-top: 0;
+		overflow: visible;
+        max-width: 100%;
+	}
+	
+	.day_container .subject_container {
+	    padding: var(--space--4) var(--space--2);
+	    border: 2px solid;
+	}
+	
+	.day_container .subject_container:last-of-type {
+	    margin-bottom: 0;
+	}
+	
+	#periods_container .period,
+	.day_container .subject_container {
+    	height: 4rem !important;
+    }
+}

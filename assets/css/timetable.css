@@ -1,0 +1,93 @@
+#periods_container .period {
+	display: flex;
+	flex-direction: column;
+	justify-content: safe center;
+	height: var(--space-5);
+	text-align: center;
+	color: var(--color-foreground-2);
+}
+
+#periods_container .period span {
+	display: block;
+	font-size: var(--space--1);
+	font-variant-numeric: tabular-nums;
+}
+
+#periods_container .no_period_placeholder {
+	color: var(--color-foreground-2);
+	line-height: calc(var(--space-5) - 8px);
+	border: 3px dashed;
+	font-size: var(--space-1);
+	text-align: center;
+	border-radius: 5px;
+}
+
+.popup span {
+	display: inline-block;
+}
+
+.popup > * + * {
+	margin-top: var(--space--2);
+}
+
+.popup .inputs_container {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-gap: var(--space--2);
+	align-items: safe center;
+}
+
+.popup .inputs_container input:not([name="color_input"]) {
+	grid-column: 2 / 4;
+}
+
+.popup .inputs_container textarea {
+	resize: vertical;
+	grid-column: 2 / 4;
+}
+
+.popup .inputs_container textarea[name="message_input"] {
+	height: 100px;
+}
+
+.popup .inputs_container .color-input_container {
+	display: flex;
+}
+
+.popup .inputs_container input[name="color_input"] {
+	padding: 0;
+	flex-grow: 1;
+}
+
+.popup .inputs_container .color_preview {
+	width: var(--space-2);
+	height: var(--space-2);
+	border-radius: 5px;
+	background-color: hsl(0, 100%, 50%);
+}
+
+.popup button {
+	float: right;
+}
+
+#periods_edit_inputs_container {
+	display: grid;
+	grid-template-columns: auto 1fr 1fr auto;
+	align-items: center;
+	grid-gap: var(--space--2);
+}
+
+#periods_edit_inputs_container .icon-delete {
+	padding: 0;
+	width: var(--space-3);
+	background-color: var(--color-background-3);
+	color: var(--color-negative);
+}
+
+#periods_edit_popup .add_button {
+	float: none;
+}
+
+#periods_edit_popup input {
+	width: auto;
+}

@@ -1,0 +1,40 @@
+Options -Indexes +FollowSymLinks
+
+RewriteEngine On
+RewriteOptions InheritDownBefore
+# Maintenance Mode
+# RewriteRule ^(.*?)$ https://chanrycz.com/error-docs/maintenance.html [QSA,L,NC,P]
+
+RewriteRule ^manage$ auth/manage.php [QSA,L,NC]
+RewriteRule ^logout$ auth/logout.php [QSA,L,NC]
+RewriteRule ^login$ auth/login.php [QSA,L,NC]
+
+RewriteRule ^settings-general$ main/settings-general.php [QSA,L,NC]
+RewriteRule ^settings-color$ main/settings-color.php [QSA,L,NC]
+RewriteRule ^settings$ main/settings.php [QSA,L,NC]
+RewriteRule ^week$ main/week.php [QSA,L,NC]
+RewriteRule ^file$ main/file.php [QSA,L,NC]
+RewriteRule ^main$ main/main.php [QSA,L,NC]
+
+RewriteRule ^manifest\.json$ main/manifest.json [QSA,L,NC]
+RewriteRule ^serviceworker\.js$ main/serviceworker.js [QSA,L,NC]
+RewriteRule ^offline$ main/offline.html [QSA,L,NC]
+RewriteRule ^offline\.html$ main/offline.html [QSA,L,NC]
+RewriteRule ^logs$ schedule_logs.txt [QSA,L,NC]
+
+RewriteRule ^cookies\.php$ - [R=404,L]
+RewriteRule ^sql\.php$ - [R=404,L]
+RewriteRule ^auth/auth\.php$ - [R=404,L]
+RewriteRule ^auth/composer\.lock$ - [R=404,L]
+RewriteRule ^auth/composer\.json$ - [R=404,L]
+RewriteRule ^auth/vendor/.*$ - [R=404,L]
+RewriteRule ^auth/vendor/?$ - [R=404,L]
+RewriteRule ^main/loginsys\.php$ - [R=404,L]
+
+DirectoryIndex main/main.php
+
+# Prevent viewing of .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
